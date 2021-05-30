@@ -1,0 +1,34 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+apply from:'../dependencies.gradle'
+
+android {
+
+    defaultConfig {
+        applicationId "com.joker.basemvvm"
+    }
+
+}
+
+dependencies {
+
+    implementation project(path: ':common')
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+//    implementation 'com.google.android.material:material:1.2.1'
+//    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+//    implementation 'androidx.appcompat:appcompat:1.2.0'
+
+    //内存泄漏测试
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+    implementation project(path: ':service')
+
+    if (!singleModule.toBoolean()) {
+        implementation project(path: ':login')
+    }
+}

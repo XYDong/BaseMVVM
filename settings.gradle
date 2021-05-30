@@ -1,0 +1,5 @@
+rootProject.name = "BaseMVVM"
+include ':app'
+include ':common'
+include ':service'
+include ':login'
