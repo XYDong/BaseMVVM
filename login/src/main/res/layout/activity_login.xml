@@ -4,6 +4,12 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.fuusy.login.viewmodel.LoginViewModel" />
+        <variable
+            name="loginAct"
+            type="com.fuusy.login.ui.LoginActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +34,8 @@
             android:text="用户名："
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ll_toolbar_login" />
+            app:layout_constraintTop_toBottomOf="@id/ll_toolbar_login"
+            android:layout_marginLeft="25dp" />
 
         <EditText
             android:id="@+id/et_user_name"
@@ -40,6 +47,7 @@
             android:hint="请输入用户名"
             android:textColor="@color/color_405182"
             android:textSize="18sp"
+            android:text="@={viewModel.userNameInput}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_phone" />
@@ -53,7 +61,8 @@
             android:text="密码："
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_user_name" />
+            app:layout_constraintTop_toBottomOf="@id/et_user_name"
+            android:layout_marginLeft="25dp" />
 
         <EditText
             android:id="@+id/et_password"
@@ -64,6 +73,7 @@
             android:layout_marginEnd="25dp"
             android:hint="请输入密码"
             android:textSize="18sp"
+            android:text="@={viewModel.passwordInput}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_password" />
@@ -81,6 +91,7 @@
             android:text="登录"
             android:textColor="@color/color_ffffff"
             android:textSize="18sp"
+            android:onClick="@{() -> viewModel.login()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_password" />

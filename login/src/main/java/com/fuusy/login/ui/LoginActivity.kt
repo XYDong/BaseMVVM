@@ -1,8 +1,6 @@
 package com.fuusy.login.ui
 
 import android.view.View
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.fuusy.common.base.BaseVmActivity
@@ -27,7 +25,7 @@ class LoginActivity : BaseVmActivity<ActivityLoginBinding>() {
 
     override fun initData() {
         initToolbar()
-        initListener()
+//        initListener()
         registerObserve()
     }
 
@@ -42,7 +40,7 @@ class LoginActivity : BaseVmActivity<ActivityLoginBinding>() {
     }
 
     private fun registerObserve() {
-        mViewModel.loginLiveData.observe(this, Observer {
+        mViewModel.loginLiveData.observe(this, {
 
         })
         mViewModel.loginLiveData.observe(this, object : IStateObserver<LoginResp>(null) {
@@ -61,20 +59,20 @@ class LoginActivity : BaseVmActivity<ActivityLoginBinding>() {
         })
     }
 
-    private fun initListener() {
-        mBinding?.run {
-            tvToRegister.setOnClickListener {
-                ARouter.getInstance().build(Constants.PATH_REGISTER)
-                    .navigation()
-            }
-
-            btLogin.setOnClickListener {
-                mViewModel.login(etUserName.text.toString(), etPassword.text.toString())
-            }
-        }
-
-
-    }
+//    private fun initListener() {
+//        mBinding?.run {
+//            tvToRegister.setOnClickListener {
+//                ARouter.getInstance().build(Constants.PATH_REGISTER)
+//                    .navigation()
+//            }
+//
+//            btLogin.setOnClickListener {
+//                mViewModel.login(etUserName.text.toString(), etPassword.text.toString())
+//            }
+//        }
+//
+//
+//    }
 
     override fun getLayoutId(): Int = R.layout.activity_login
 
