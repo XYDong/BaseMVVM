@@ -91,7 +91,6 @@
             android:text="登录"
             android:textColor="@color/color_ffffff"
             android:textSize="18sp"
-            android:onClick="@{() -> viewModel.login()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_password" />

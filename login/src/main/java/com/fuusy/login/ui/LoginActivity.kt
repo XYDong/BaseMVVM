@@ -25,7 +25,7 @@ class LoginActivity : BaseVmActivity<ActivityLoginBinding>() {
 
     override fun initData() {
         initToolbar()
-//        initListener()
+        initListener()
         registerObserve()
     }
 
@@ -59,20 +59,20 @@ class LoginActivity : BaseVmActivity<ActivityLoginBinding>() {
         })
     }
 
-//    private fun initListener() {
-//        mBinding?.run {
-//            tvToRegister.setOnClickListener {
-//                ARouter.getInstance().build(Constants.PATH_REGISTER)
-//                    .navigation()
-//            }
-//
-//            btLogin.setOnClickListener {
-//                mViewModel.login(etUserName.text.toString(), etPassword.text.toString())
-//            }
-//        }
-//
-//
-//    }
+    private fun initListener() {
+        mBinding?.run {
+            tvToRegister.setOnClickListener {
+                ARouter.getInstance().build(Constants.PATH_REGISTER)
+                    .navigation()
+            }
+
+            btLogin.setOnClickListener {
+                mViewModel.login(etUserName.text.toString(), etPassword.text.toString())
+            }
+        }
+
+
+    }
 
     override fun getLayoutId(): Int = R.layout.activity_login
 
